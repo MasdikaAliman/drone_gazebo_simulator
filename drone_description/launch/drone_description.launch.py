@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-
+from launch.actions import TimerAction
 
 
 
@@ -129,12 +129,12 @@ def generate_launch_description():    # Get the package share directory
         arguments=[
             "-topic", "/robot_description",
             "-name", '',
-            "-x 0", 
-            "-y 0",
-            "-z", "0.1460",
-            "-R 0",
-            "-P 0", 
-            "-Y 0", 
+            "-x", "0.0", 
+            "-y", "0.0",
+            "-z", "0.0",
+            "-R", "0.0",
+            "-P", "0.0", 
+            "-Y", "0.0", 
             '-allow_renaming', 'true',
             ]
 
@@ -162,9 +162,16 @@ def generate_launch_description():    # Get the package share directory
     ld.add_action(robot_state_publisher_node)
     ld.add_action(joint_state_publisher_node)
     ld.add_action(joint_state_publisher_gui_node)
+ 
+    ld.add_action(
+        TimerAction(period=2.0, 
+                    actions=[start_gazebo_server_cmd])
+    )
+    ld.add_action(
+        TimerAction(period=1.0, 
+                    actions=[start_gazebo_spawner_cmd])
+    )
     ld.add_action(rviz_node)
-    ld.add_action(start_gazebo_server_cmd)
-    ld.add_action(start_gazebo_spawner_cmd)
     ld.add_action(start_gazebo_ros_bridge_cmd)
 
 

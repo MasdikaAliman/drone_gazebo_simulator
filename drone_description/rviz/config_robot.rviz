@@ -8,6 +8,7 @@ Panels:
         - /Status1
         - /RobotModel1
         - /TF1
+        - /Odometry1
       Splitter Ratio: 0.5
     Tree Height: 331
   - Class: rviz_common/Views
@@ -54,6 +55,10 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        drone/base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         drone/chassis_link:
           Alpha: 1
           Show Axes: false
@@ -92,19 +97,82 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        drone/base_footprint:
+          Value: true
+        drone/chassis_link:
+          Value: true
+        drone/m1_link:
+          Value: true
+        drone/m2_link:
+          Value: true
+        drone/m3_link:
+          Value: true
+        drone/m4_link:
+          Value: true
+        drone/odom:
+          Value: true
       Marker Scale: 0.25
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        drone/odom:
+          drone/base_footprint:
+            drone/chassis_link:
+              drone/m1_link:
+                {}
+              drone/m2_link:
+                {}
+              drone/m3_link:
+                {}
+              drone/m4_link:
+                {}
       Update Interval: 0
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz_default_plugins/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 20
+      Name: Odometry
+      Position Tolerance: 0.10000000149011612
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /odom
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: drone/chassis_link
+    Fixed Frame: drone/odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -116,7 +184,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.2487694025039673
+      Distance: 7.264461517333984
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -131,10 +199,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5750003457069397
+      Pitch: 0.7900000214576721
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.746814489364624
+      Yaw: 1.5418144464492798
     Saved: ~
 Window Geometry:
   Displays:

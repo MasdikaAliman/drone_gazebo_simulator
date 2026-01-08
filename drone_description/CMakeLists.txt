@@ -6,7 +6,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
-# find_package(ament_cmake REQUIRED)
+find_package(ament_cmake REQUIRED)
 # find_package(gz-cmake2 REQUIRED)
 # find_package(gz-sim6 REQUIRED)
 # find_package(gz-transport12 REQUIRED)
@@ -61,6 +61,5 @@ install(
   DIRECTORY config launch meshes rviz urdf models world
   DESTINATION share/${PROJECT_NAME}
 )
-
 
 ament_package()

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" project_name="Project">
+    <include path="behavior_tree_drone.xml"/>
+    <!-- Description of Node Models (used by Groot) -->
+    <TreeNodesModel>
+        <Action ID="ChargeBattery" editable="true">
+            <output_port name="battery_level"/>
+        </Action>
+        <Condition ID="CheckBattery" editable="true">
+            <input_port name="Battery_Threshold" default="40"/>
+            <output_port name="battery_level"/>
+        </Condition>
+        <Action ID="GoToPose" editable="true">
+            <input_port name="Target">Target Position In Format x;y;z;yaw</input_port>
+            <input_port name="State_Type"/>
+        </Action>
+    </TreeNodesModel>
+</root>
