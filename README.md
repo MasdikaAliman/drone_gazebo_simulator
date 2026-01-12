@@ -447,18 +447,6 @@ ros2 node info /drone_controller
 
 # Restart semua nodes
 ```
-
----
-
-## 📚 Dokumentasi Tambahan
-
-- 📖 [ROS 2 Jazzy Documentation](https://docs.ros.org/en/jazzy/)
-- 🎮 [Gazebo Tutorial](http://gazebosim.org/tutorials)
-- 🌳 [BehaviorTree.CPP](https://www.behaviortree.dev/)
-- 🚁 [PX4 Developer Guide](https://docs.px4.io/main/en/)
-
----
-
 ## 🤝 Kontribusi
 
 Kontribusi sangat terbuka! Ikuti langkah berikut:
