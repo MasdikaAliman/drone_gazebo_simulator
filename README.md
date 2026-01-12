@@ -27,7 +27,7 @@
 ## 📺 Video Demo
 
 ### Drone Simulation Demo
-[![Video](https://img.youtube.com/vi/kIQf73uS0oI/hqdefault.jpg)](https://www.youtube.com/watch?v=kIQf73uS0oI)
+[![Video](https://img.youtube.com/vi/kIQf73uS0oI/hqdefault.jpg)](https://youtu.be/ilig2Ylj190)
 
 *Klik gambar di atas untuk menonton video demo*
 
@@ -71,7 +71,7 @@ drone_gazebo_simulator/
 - ✈️ **Simulasi Drone di Gazebo** - Environment 3D realistis dengan fisika akurat
 - 🎮 **Kontrol PID** - Stabilisasi dan kontrol posisi drone
 - 🌳 **Behavior Tree** - Sistem pengambilan keputusan modular
-- 📡 **Multi Sensor** - IMU, GPS, dan sensor lainnya
+- 📡 **Multi Sensor** - IMU, dan sensor lainnya
 - 🗺️ **Waypoint Navigation** - Navigasi otomatis ke target koordinat
 - 🔋 **Battery Monitoring** - Simulasi konsumsi dan monitoring baterai
 - 🏠 **Return to Home** - Fitur RTH otomatis
@@ -84,24 +84,24 @@ drone_gazebo_simulator/
 - **Ubuntu 22.04 LTS** (Jammy Jellyfish)
 
 ### Software yang Diperlukan
-- **ROS 2 Jazzy Jalisco**
-- **Gazebo Classic** (gz-sim)
+- **ROS 2 Humble**
+- **Gazebo Ignition** (gz-sim)
 - **Python 3.10+**
 - **C++17** compiler
 - **colcon** build tools
 
-### Instalasi ROS 2 Jazzy
+### Instalasi ROS 2 Humble
 
 ```bash
 # Update repository
 sudo apt update && sudo apt upgrade -y
 
 # Install ROS 2 Jazzy Desktop
-sudo apt install ros-jazzy-desktop -y
+sudo apt install ros-humble-desktop -y
 
 # Install development tools
 sudo apt install python3-colcon-common-extensions -y
-sudo apt install ros-jazzy-gazebo-ros-pkgs -y
+sudo apt install ros-humble-gazebo-ros-pkgs -y
 ```
 
 ### Instalasi Dependencies Tambahan
@@ -109,12 +109,12 @@ sudo apt install ros-jazzy-gazebo-ros-pkgs -y
 ```bash
 # Install library yang dibutuhkan
 sudo apt install -y \
-  ros-jazzy-xacro \
-  ros-jazzy-robot-state-publisher \
-  ros-jazzy-joint-state-publisher \
-  ros-jazzy-controller-manager \
-  ros-jazzy-tf2-tools \
-  ros-jazzy-rqt* \
+  ros-humble-xacro \
+  ros-humble-robot-state-publisher \
+  ros-humble-joint-state-publisher \
+  ros-humble-controller-manager \
+  ros-humble-tf2-tools \
+  ros-humble-rqt* \
   python3-rosdep
 ```
 
@@ -176,25 +176,25 @@ ros2 launch drone_sim full_simulation.launch.py
 
 ### 🔧 Manual Start (Step by Step)
 
-#### 1. Jalankan Gazebo + Model Drone
+#### 1. Jalankan Gazebo + Model Drone + Rviz
 
 ```bash
 # Terminal 1
-ros2 launch drone_sim gazebo_launch.py
+ros2 launch drone_description drone_description.launch.py
 ```
 
-#### 2. Jalankan Drone Controller
+#### 2. Jalankan Drone Controller Action Server
 
 ```bash
 # Terminal 2
-ros2 launch drone_controller controller_launch.py
+ros2 run drone_controller move_to_action_server
 ```
 
 #### 3. Jalankan Behavior Tree
 
 ```bash
 # Terminal 3
-ros2 launch drone_behavior behavior_launch.py
+ros2 run drone_behavior drone_behavior
 ```
 
 ---
@@ -248,8 +248,6 @@ drone_behavior/config/behavior_tree_drone.xml
 | `/odom` | `nav_msgs/Odometry` | Posisi dan orientasi drone saat ini |
 | `/imu` | `sensor_msgs/Imu` | Data IMU (accelerometer, gyroscope) |
 | `/battery_state` | `sensor_msgs/BatteryState` | Status baterai (voltage, percentage) |
-| `/gps/fix` | `sensor_msgs/NavSatFix` | Data GPS koordinat |
-| `/camera/image_raw` | `sensor_msgs/Image` | Stream kamera drone |
 | `/behavior_status` | `std_msgs/String` | Status behavior tree saat ini |
 
 ### 🔌 Services
@@ -279,44 +277,6 @@ ros2 topic info /battery_state
 
 ---
 
-## ⚙️ Konfigurasi Parameter
-
-File konfigurasi utama: `params/drone_params.yaml`
-
-```yaml
-drone_controller:
-  ros__parameters:
-    # PID Tuning
-    pid_pos_kp: 1.0
-    pid_pos_ki: 0.0
-    pid_pos_kd: 0.5
-    
-    pid_vel_kp: 0.8
-    pid_vel_ki: 0.1
-    pid_vel_kd: 0.3
-    
-    # Physical Limits
-    max_velocity: 5.0       # m/s
-    max_acceleration: 2.0   # m/s²
-    max_tilt_angle: 30.0    # degrees
-    
-    # Control Loop
-    update_rate: 50.0       # Hz
-
-drone_behavior:
-  ros__parameters:
-    # Mission Parameters
-    takeoff_height: 2.0     # meters
-    landing_speed: 0.5      # m/s
-    waypoint_tolerance: 0.3 # meters
-    
-    # Safety Parameters
-    battery_threshold: 20.0 # percentage
-    max_flight_time: 600.0  # seconds
-    geofence_radius: 100.0  # meters
-```
-
----
 
 ## 🎮 Kontrol Manual
 
