@@ -1,8 +1,8 @@
 # drone_gazebo_simulator
-# 🚁 Drone Gazebo Simulator (ROS 2 Jazzy)
+# 🚁 Drone Gazebo Simulator (ROS 2 Humble)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ROS2-Jazzy-blue?logo=ros" alt="ROS 2 Jazzy">
+  <img src="https://img.shields.io/badge/ROS2-Humble-blue?logo=ros" alt="ROS 2 Humble">
   <img src="https://img.shields.io/badge/Gazebo-Simulator-orange" alt="Gazebo">
   <img src="https://img.shields.io/badge/Ubuntu-22.04-purple?logo=ubuntu" alt="Ubuntu 22.04">
   <img src="https://img.shields.io/badge/C++-17-00599C?logo=cplusplus" alt="C++17">
@@ -13,7 +13,7 @@
 
 ## 📌 Deskripsi
 
-**Drone Gazebo Simulator** adalah proyek simulasi drone berbasis **ROS 2 Jazzy** dan **Gazebo** yang berjalan pada **Ubuntu 22.04**. Simulator ini digunakan untuk menguji sistem kontrol drone, Behaviour Tree, dan algoritma navigasi otonom dalam lingkungan virtual yang aman.
+**Drone Gazebo Simulator** adalah proyek simulasi drone berbasis **ROS 2 Humble** dan **Gazebo** yang berjalan pada **Ubuntu 22.04**. Simulator ini digunakan untuk menguji sistem kontrol drone, Behaviour Tree, dan algoritma navigasi otonom dalam lingkungan virtual yang aman.
 
 ### 🎯 Kegunaan:
 - 🔬 Pengembangan dan testing sistem kontrol drone
@@ -96,7 +96,7 @@ drone_gazebo_simulator/
 # Update repository
 sudo apt update && sudo apt upgrade -y
 
-# Install ROS 2 Jazzy Desktop
+# Install ROS 2 Humble Desktop
 sudo apt install ros-humble-desktop -y
 
 # Install development tools
@@ -284,7 +284,7 @@ ros2 topic info /battery_state
 
 ```bash
 # Install teleop keyboard
-sudo apt install ros-jazzy-teleop-twist-keyboard
+sudo apt install ros-Humble-teleop-twist-keyboard
 
 # Jalankan teleop
 ros2 run teleop_twist_keyboard teleop_twist_keyboard \
