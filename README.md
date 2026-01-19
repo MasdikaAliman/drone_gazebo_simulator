@@ -25,6 +25,10 @@ Created by:
 - 🎓 Media pembelajaran robotika dan autonomous systems
 
 ---
+## Behavior Tree Groot2
+
+![Picture](https://github.com/MasdikaAliman/drone_gazebo_simulator/blob/master/BT.png)
+---
 
 ## 📺 Video Demo
 
