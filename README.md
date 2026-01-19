@@ -10,7 +10,9 @@
 </p>
 
 ---
-
+Created by:
+-Masdika Aliman(4222201024)
+-Ezha Tri Saputra(4222201026)
 ## 📌 Deskripsi
 
 **Drone Gazebo Simulator** adalah proyek simulasi drone berbasis **ROS 2 Humble** dan **Gazebo** yang berjalan pada **Ubuntu 22.04**. Simulator ini digunakan untuk menguji sistem kontrol drone, Behaviour Tree, dan algoritma navigasi otonom dalam lingkungan virtual yang aman.
